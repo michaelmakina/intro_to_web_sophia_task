@@ -6,6 +6,7 @@
     --color-dark: #0a1018;
     --color-light: #f2faf7;
     --color-white: #ffffff;
+    --color-error: #b3261e; /* status colour for form errors only */
 
     --font-heading: "Poppins", Arial, sans-serif;
     --font-body: "Open Sans", Arial, sans-serif;
@@ -458,6 +459,55 @@ article + article {
 .form fieldset input {
     margin-top: 0.35rem;
     accent-color: var(--color-primary);
+}
+
+
+.form .form_message {
+    display: block;
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form_group.form_error input[type="text"],
+.form_group.form_error input[type="email"],
+.form_group.form_error select,
+.form_group.form_error textarea,
+fieldset.form_group.form_error {
+    border-color: var(--color-error);
+}
+
+.form_group.form_error .form_message {
+    color: var(--color-error);
+}
+
+.form_group.form_success input[type="text"],
+.form_group.form_success input[type="email"],
+.form_group.form_success select,
+.form_group.form_success textarea,
+fieldset.form_group.form_success {
+    border-color: var(--color-primary);
+}
+
+.form_group.form_success .form_message {
+    color: var(--color-primary);
+}
+
+.form_status {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.form_status.form_error {
+    color: var(--color-error);
+}
+
+.form_status.form_success {
+    padding: 0.75rem 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
 }
 
 .info_columns {
