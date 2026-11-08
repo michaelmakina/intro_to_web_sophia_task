@@ -50,33 +50,36 @@
 
         <section>
             <h2>Volunteer or Foster Interest Form</h2>
-            <form action="#" method="post" class="form">
+            <form action="#" method="post" class="form" id="contact_form" novalidate>
 
                 <!-- Name -->
-                <div>
+                <div class="form_group">
                     <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required>
+                    <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name_message" required>
+                    <div class="form_message" id="name_message" aria-live="polite"></div>
                 </div>
 
                 <!-- Email -->
-                <div>
+                <div class="form_group">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email_message" required>
+                    <div class="form_message" id="email_message" aria-live="polite"></div>
                 </div>
 
                 <!-- Interest Type -->
-                <div>
+                <div class="form_group">
                     <label for="interest">I am interested in:</label>
-                    <select id="interest" name="interest" required>
+                    <select id="interest" name="interest" aria-describedby="interest_message" required>
                         <option value="">-- Please choose an option --</option>
                         <option value="volunteer">Volunteering</option>
                         <option value="foster">Fostering</option>
                         <option value="adoption">Adoption Information</option>
                     </select>
+                    <div class="form_message" id="interest_message" aria-live="polite"></div>
                 </div>
 
                 <!-- Availability -->
-                <fieldset>
+                <fieldset class="form_group" id="availability" aria-describedby="availability_message">
                     <legend>Availability (select all that apply):</legend>
                     <div>
                         <input type="checkbox" id="weekday-mornings" name="availability" value="weekday-mornings">
@@ -94,10 +97,11 @@
                         <input type="checkbox" id="weekends" name="availability" value="weekends">
                         <label for="weekends">Weekends</label>
                     </div>
+                    <div class="form_message" id="availability_message" aria-live="polite"></div>
                 </fieldset>
 
                 <!-- Experience with Pets -->
-                <fieldset>
+                <fieldset class="form_group" id="experience" aria-describedby="experience_message">
                     <legend>Experience with Pets:</legend>
                     <div>
                         <input type="radio" id="experience-none" name="experience" value="none" required>
@@ -111,16 +115,21 @@
                         <input type="radio" id="experience-lots" name="experience" value="lots">
                         <label for="experience-lots">A lot of experience (I have fostered, volunteered, or worked with animals)</label>
                     </div>
+                    <div class="form_message" id="experience_message" aria-live="polite"></div>
                 </fieldset>
 
                 <!-- Short Message -->
-                <div>
+                <div class="form_group">
                     <label for="message">Short Message:</label>
-                    <textarea id="message" name="message" rows="5" cols="40" maxlength="500" placeholder="Tell us a little about yourself and why you would like to get involved."></textarea>
+                    <textarea id="message" name="message" rows="5" cols="40" maxlength="500" placeholder="Tell us a little about yourself and why you would like to get involved." aria-describedby="message_message"></textarea>
+                    <div class="form_message" id="message_message" aria-live="polite"></div>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="button" aria-label="Submit Form">Submit</button>
+
+                <!-- Overall result of the form (success or "please fix errors") -->
+                <div class="form_status" id="form_status" aria-live="polite"></div>
 
             </form>
         </section>
