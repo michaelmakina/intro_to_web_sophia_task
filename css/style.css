@@ -161,23 +161,28 @@ figcaption {
     z-index: 10;
 }
 
+/* Mobile: logo, Donate and menu button on one row; the
+   links drop onto their own full-width row underneath */
 .nav {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
-.logo_menu_wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.logo {
+    margin-right: auto;
 }
 
 .logo img {
     width: 70px;
     height: auto;
+}
+
+.nav_donate {
+    padding: 0.5rem 1.1rem;
 }
 
 /* Menu Button Mobile */
@@ -200,7 +205,8 @@ figcaption {
 
 .menu_items_wrapper {
     display: none;
-    width: 100%;
+    order: 1;
+    flex-basis: 100%;
 }
 
 .menu_items_wrapper.show {
@@ -412,6 +418,7 @@ article + article {
 
 .form input[type="text"],
 .form input[type="email"],
+.form input[type="tel"],
 .form select,
 .form textarea {
     width: 100%;
@@ -471,6 +478,7 @@ article + article {
 
 .form_group.form_error input[type="text"],
 .form_group.form_error input[type="email"],
+.form_group.form_error input[type="tel"],
 .form_group.form_error select,
 .form_group.form_error textarea,
 fieldset.form_group.form_error {
@@ -483,6 +491,7 @@ fieldset.form_group.form_error {
 
 .form_group.form_success input[type="text"],
 .form_group.form_success input[type="email"],
+.form_group.form_success input[type="tel"],
 .form_group.form_success select,
 .form_group.form_success textarea,
 fieldset.form_group.form_success {
@@ -508,6 +517,104 @@ fieldset.form_group.form_success {
     background-color: var(--color-light);
     border-left: 4px solid var(--color-accent);
     border-radius: var(--radius);
+}
+
+/* Donation modal */
+.donation_modal {
+    width: min(560px, calc(100% - 32px));
+    max-height: calc(100% - 32px);
+    padding: 0;
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(10, 16, 24, 0.3);
+}
+
+.donation_modal::backdrop {
+    background-color: rgba(10, 16, 24, 0.6);
+}
+
+.modal_inner {
+    padding: 1.5rem;
+}
+
+.modal_header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.modal_close {
+    padding: 0 0.5rem;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--color-dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.donation_modal .form {
+    max-width: none;
+}
+
+/* Radio buttons shown as selectable "chips" */
+.form .option_chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.form .option_chips > div {
+    margin: 0;
+}
+
+.form .option_chips input {
+    position: absolute;
+    opacity: 0;
+}
+
+.form .option_chips label {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-accent);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.form .option_chips input:checked + label {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.form .option_chips input:focus-visible + label {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.donation_impact {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+}
+
+.demo_note {
+    font-size: 0.9rem;
+    color: #4a5a55;
+}
+
+.donation_thanks h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
 }
 
 .info_columns {
@@ -609,13 +716,8 @@ th {
     }
 
     .nav {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .logo_menu_wrapper {
-        width: auto;
+        flex-wrap: nowrap;
+        gap: 1rem;
     }
 
     .logo img {
@@ -628,7 +730,8 @@ th {
 
     .menu_items_wrapper {
         display: block;
-        width: auto;
+        order: 0;
+        flex-basis: auto;
     }
 
     .nav ul {

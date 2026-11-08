@@ -18,18 +18,12 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo_menu_wrapper">
-                <a href="index.html" class="logo">
-                    <img src="assets/rescue-logo_c.png" alt="Twin Cities Animal Rescue Logo" width="100" height="100">
-                </a>
-                <button class="mobile_menu_button" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-            <!-- Nav Links -->
-            <div class="menu_items_wrapper">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="assets/rescue-logo_c.png" alt="Twin Cities Animal Rescue Logo" width="100" height="100">
+            </a>
+            <!-- Navigation Links -->
+            <div class="menu_items_wrapper" id="menu_items">
                 <ul>
                     <li><a href="index.html" aria-current="page">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -37,6 +31,14 @@
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
+            <!-- Opens the donation modal (built by js/main.js) -->
+            <button type="button" class="button nav_donate" data-open-donation>Donate</button>
+            <!-- Mobile menu button (hidden on larger screens) -->
+            <button type="button" class="mobile_menu_button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu_items">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -105,18 +107,17 @@
                 <li><strong>Donate:</strong> Your contributions help us provide care and shelter for animals.</li>
                 <li><strong>Foster:</strong> Provide temporary homes for animals until they find their forever homes.</li>
             </ul>
+            <button type="button" class="button" data-open-donation>Make a Donation</button>
         </section>
     </main>
-
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Twin Cities Animal Rescue. All rights reserved.</p>
         <div class="social">
             <p>Follow us on social media:</p>
             <ul>
-                <li><a href="https://www.facebook.com/TwinCitiesAnimalRescue" aria-label="Facebook">Facebook</a></li>
-                <li><a href="https://www.twitter.com/TwinCitiesRescue" aria-label="Twitter">Twitter</a></li>
-                <li><a href="https://www.instagram.com/TwinCitiesAnimalRescue" aria-label="Instagram">Instagram</a></li>
+                <li><a href="https://www.facebook.com/TwinCitiesAnimalRescue">Facebook</a></li>
+                <li><a href="https://www.twitter.com/TwinCitiesRescue">Twitter</a></li>
+                <li><a href="https://www.instagram.com/TwinCitiesAnimalRescue">Instagram</a></li>
             </ul>
         </div>
     </footer>
